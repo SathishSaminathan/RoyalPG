@@ -1,0 +1,3 @@
+rootProject.name = 'RoyalPGApp'
+
+include ':app'
