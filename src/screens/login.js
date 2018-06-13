@@ -11,6 +11,11 @@ class login extends Component {
             password: ""
         }
     }
+
+    loginHandler=(email,password)=>{
+        this.props.getLoginUpHandler(email,password);
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -38,7 +43,8 @@ class login extends Component {
                         returnKeyType='done'
                     />
                     <Button
-                        onPress={() => alert(this.state.email + " " + this.state.password)}
+                        // onPress={() => alert(this.state.email + " " + this.state.password)}
+                        onPress={()=>{this.loginHandler(this.state.email,this.state.password)}}
                         title="LOGIN"
                         color="#841584"
                         accessibilityLabel="Learn more about this purple button"

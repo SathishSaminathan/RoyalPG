@@ -12,6 +12,11 @@ class signup extends Component {
             mobileNumber: ""
         }
     }
+
+    signUpHandler=(email,password)=>{
+        this.props.getSignupHandler(email,password);
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -38,6 +43,8 @@ class signup extends Component {
                         returnKeyType='next'
                         onSubmitEditing={()=>{this.mobileNumberField.focus();}}
                         blurOnSubmit={false}
+                        keyboardType="visible-password"
+                        secureTextEntry
                     />
                     <TextInput
                       ref={(input) => { this.mobileNumberField = input }}
@@ -51,7 +58,7 @@ class signup extends Component {
                         returnKeyType='done'
                     />
                     <Button
-                        onPress={() => alert(this.state.email + " " + this.state.password)}
+                        onPress={()=>{this.signUpHandler(this.state.email,this.state.password)}}
                         title="LOGIN"
                         color="#841584"
                         accessibilityLabel="Learn more about this purple button"
